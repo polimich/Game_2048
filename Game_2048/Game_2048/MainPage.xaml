@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Game_2048.MainPage">
+    <StackLayout>
+        <Button x:Name="new_game" Text="New game" Clicked="new_game_Clicked" />
+        <AbsoluteLayout>
+            <StackLayout x:Name="mainLayout" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            </StackLayout>
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="True" BackgroundColor="Transparent" Padding="0, 0" >
+                <!--Rozpoznávač svajpů-->
+                <ContentView.GestureRecognizers> 
+                    <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                    <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+                    <SwipeGestureRecognizer Direction="Up" Swiped="OnSwiped"/>
+                    <SwipeGestureRecognizer Direction="Down" Swiped="OnSwiped"/>
+                </ContentView.GestureRecognizers>
+            </ContentView>
+        </AbsoluteLayout>
+        <Frame HorizontalOptions="Center" VerticalOptions="CenterAndExpand" OutlineColor="Accent">
+            <Label x:Name="scoreLabel" FontSize="Large" />
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
